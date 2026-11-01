@@ -50,9 +50,20 @@ Status: 2026-11-01. Every question the design package asks you, with the recomme
 | Q-B13 | Monster families: legacy ten or new nine | Nine Dry River families | |
 | Q-B14 | Simulation policy decision interval | 10 simulated seconds | |
 
-## D. Track B game design (design 09)
+## D. Track B game design (design 09, Section 17)
 
-*To be appended when the game design document lands.*
+| ID | Question | Default | Answer |
+|---|---|---|---|
+| GD-01 | Fifteen skills with Cartography leveled, or fourteen | Fifteen | |
+| GD-02 | Is a Monsoon ever forced, or always optional | Optional, with an overfill cap at 300% | |
+| GD-03 | Steam price $7.99, $8.99 or $9.99 | $8.99 | |
+| GD-04 | Tool tiers persist through the first monsoon free, or as the first cheap watermark purchase | First purchase | |
+| GD-05 | Flooded areas last 20 active hours, or until the next monsoon | 20 active hours, then they become Silt Flats | |
+| GD-06 | Ranged weapons: bows, slings and knives only, or admit one late "lightning rod" | Admit one, from the Rookery | |
+| GD-07 | Keep "Dry River" as the final title if the trademark search is clean | Yes, with a subtitle decided at M3 | |
+| GD-08 | Ledger quest text agent-drafted and human-edited, or human-written only | Agent-drafted to a brief; every line edited and logged | |
+| GD-09 | Web cloud saves with accounts before Steam | No; file export until Steam Cloud | |
+| GD-10 | Ranged skill named Marksmanship or Hunting | Marksmanship | |
 
 ## E. What needs a lawyer (design 11, design 08)
 

@@ -127,7 +127,7 @@ The forbidden-terms lint runs on content, strings, code, commit messages, and th
 
 1. Blizzard and Warcraft proper nouns: continents, zones, cities, dungeons, raids, factions, races with distinctive spellings, named characters, deities, organizations.
 2. Item, set, spell, ability, talent, and currency names from that franchise, including distinctive compounds and the legacy repo's strings counted in `design/04-track-b-port-inventory.md`.
-3. Franchise-specific common words that read as that franchise in a game context (the hearth-and-stone compound, the legacy "heirloom" item category, the legacy zone id prefixes `the_`, `ench_`, `incubator_`, `ss_` and the rest).
+3. Franchise-specific common words that read as that franchise in a game context (the hearth-and-stone compound, the legacy inherited-item category, the legacy zone id prefixes `the_`, `ench_`, `incubator_`, `ss_` and the rest).
 4. Other protected franchises as a second list (tabletop monster names with trademark status, other MMO proper nouns), screened to "warn" rather than "fail."
 5. Legacy flavor entities (the thief's ghost, the smith's ghost) are rewritten, not renamed, so the sentences do not survive either.
 
