@@ -1,0 +1,645 @@
+# Phase 0 legal register, draft. One entry per source checked on 2026-11-01 for Track A
+# (contractor licensing, plus the five verified liquor-licence sources for the recommended second vertical).
+# bulk_available: true = a bulk file, open dataset or roster download was fetched or its official page confirmed;
+#                 false = none found; unknown = described but blocked or not exercised.
+# Companion to research/phase0-scorecard.md. Not legal advice. Entries written by the research sweep; verify before enabling a source.
+- source: Alaska CBPL professional license database download
+  jurisdiction: US-AK
+  url: https://www.commerce.alaska.gov/cbp/DBDownloads/ProfessionalLicenseDownload.CSV
+  format: CSV (unverified; ~96k rows in 2022 snapshot)
+  bulk_available: unknown
+  terms_notes: entire host behind DataDome JS challenge (403) from datacenter IP; lookup at /cbp/main/search/professional
+  robots_notes: robots.txt returns 403 challenge
+  copyright_posture: not covered on Wikipedia page; AS 40.25.110 (not fetched)
+  personal_data_fields: licensee name, license type, issue date, status (per third-party description)
+  verified_on: '2026-11-01'
+- source: Alabama State Licensing Board for General Contractors roster
+  jurisdiction: US-AL
+  url: https://licensesearch.alabama.gov/genconbd/FullRosterReport
+  format: CSV (9,378 rows); HTML table + /Details/{id}
+  bulk_available: true
+  terms_notes: none on site; no CAPTCHA; public records via publicrecordsrequest.alabama.gov
+  robots_notes: /robots.txt redirects to error page (no robots)
+  copyright_posture: not covered on Wikipedia subnational page; Ala. Code 36-12-40 (not fetched)
+  personal_data_fields: business name, address, city/state/zip, phone, fax, bid limit, specialty, expiration
+  verified_on: '2026-11-01'
+- source: Arkansas Contractors Licensing Board search / hearing findings
+  jurisdiction: US-AR
+  url: http://aclb2.arkansas.gov/clbsearch.php
+  format: PHP HTML search (currently "unavailable"); discipline PDFs at labor.arkansas.gov
+  bulk_available: false
+  terms_notes: none; electrical roster export capped at 3,000 rows
+  robots_notes: labor.arkansas.gov robots Crawl-delay 10, no disallow
+  copyright_posture: not covered on Wikipedia page; A.C.A. 25-19-105 (not fetched)
+  personal_data_fields: unknown for GC; electrical roster name/license/status
+  verified_on: '2026-11-01'
+- source: Arizona Registrar of Contractors posting list
+  jurisdiction: US-AZ
+  url: https://roc.az.gov/posting-list
+  format: CSV (All Current / Commercial / Residential / Dual; 58,567 recs per search snippet)
+  bulk_available: unknown
+  terms_notes: Cloudflare 403 on roc.az.gov/azroc.gov; lookup azroc.my.site.com is Salesforce SPA; A.R.S. 39-121.03 commercial-purpose fees; paid PRR forms
+  robots_notes: robots.txt returns Cloudflare challenge
+  copyright_posture: AZ asserts copyright in state works; commercial use of records regulated by A.R.S. 39-121.03 (Wikipedia page)
+  personal_data_fields: business name, DBA, street address, qualifying party name; phone/principals on lookup (vendor)
+  verified_on: '2026-11-01'
+- source: California ABC Licensing Reports (daily issued, new applications, status changes; weekly legal proceedings)
+  jurisdiction: US-CA
+  url: https://www.abc.ca.gov/licensing/licensing-reports/
+  format: Daily zipped CSV refreshed each business day at 7 a.m. PT; weekly legal proceedings; monthly surrenders
+  bulk_available: true
+  terms_notes: ABC conditions of use treat site information as public domain
+  robots_notes: Not checked
+  copyright_posture: Public domain per conditions of use; County of Santa Clara v. CFAC
+  personal_data_fields: Licensee names, premise addresses
+  verified_on: '2026-11-01'
+- source: California CSLB Check a License (per-license lookup)
+  jurisdiction: US-CA
+  url: https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/CheckLicense.aspx
+  format: ASP.NET WebForms HTML; no CAPTCHA; 50/100 result caps; detail pages show personnel, bond, workers comp, complaint disclosure
+  bulk_available: false
+  terms_notes: 'ca.gov Conditions of Use: information "considered in the public domain"; use "for other than its intended purposes" prohibited; database down Sunday 8pm to Monday 6am; Public Sales custom order $245 for full file'
+  robots_notes: cslb.ca.gov/robots.txt 404
+  copyright_posture: 'County of Santa Clara v. CFAC (2009): no copyright on disclosable records'
+  personal_data_fields: RMO/RME names, business address, phone, bond and WC carriers
+  verified_on: '2026-11-01'
+- source: California CSLB Data Portal (list by classification)
+  jurisdiction: US-CA
+  url: https://www.cslb.ca.gov/OnlineServices/DataPortal/ListByClassification.aspx
+  format: XLS download (<=10 classifications); HTML lookup CheckLicenseII
+  bulk_available: true
+  terms_notes: ca.gov/use — public domain default, "intended purposes" clause, no anti-scraping; DB down Sun 8pm-Mon 6am; emails excluded (B&P 27)
+  robots_notes: robots.txt 404
+  copyright_posture: County of Santa Clara v. CFAC (2009) — no copyright on CPRA records absent statute
+  personal_data_fields: business name, address, phone, personnel names, bond carrier, workers comp carrier
+  verified_on: '2026-11-01'
+- source: Colorado DORA Professional and Occupational Licenses (Socrata)
+  jurisdiction: US-CO
+  url: https://data.colorado.gov/d/7s5z-vewr
+  format: Socrata CSV/JSON/API; 1,616,707 rows; daily
+  bulk_available: true
+  terms_notes: lookup site says "not designed for web crawling programs… individual searches only"; CAPTCHA on lookup; data.colorado.gov/terms use-at-own-risk
+  robots_notes: apps2.colorado.gov Crawl-delay 60, Request-rate 1/10, Googlebot disallow /Lookup/; data.colorado.gov Crawl-delay 1
+  copyright_posture: C.R.S. 24-72-203 (copyright allowed but cannot restrict access); dataset Public Domain
+  personal_data_fields: individual full name, entity name, city/state/zip (no street), dates, status, discipline case/action
+  verified_on: '2026-11-01'
+- source: Connecticut State Licenses and Credentials (Socrata)
+  jurisdiction: US-CT
+  url: https://data.ct.gov/d/ngch-56tr
+  format: Socrata CSV/JSON/API; 2,676,044 rows; daily
+  bulk_available: true
+  terms_notes: eLicense (Tyler) no anti-bot clause; rosters free; no CAPTCHA
+  robots_notes: elicense.ct.gov robots 404; data.ct.gov Crawl-delay 1
+  copyright_posture: not covered on Wikipedia page; dataset Public Domain
+  personal_data_fields: name, business/DBA, full street address, dates, status
+  verified_on: '2026-11-01'
+- source: DC Basic Business Licenses (Open Data DC / ArcGIS)
+  jurisdiction: US-DC
+  url: https://opendata.dc.gov/datasets/DCGIS::basic-business-licenses
+  format: CSV/GeoJSON/FGDB/ArcGIS REST (maxRecordCount 2000); 281,134 rows
+  bulk_available: true
+  terms_notes: CC-BY-4.0; Scout lookup is SPA; occupational portal requires Okta login
+  robots_notes: opendata.dc.gov Crawl-delay 60
+  copyright_posture: DC works treated as US federal works (Copyright Office Compendium; Wikipedia page); data CC-BY-4.0
+  personal_data_fields: entity/trade name, business owner first/middle/last, agent names, premise & billing address, coordinates
+  verified_on: '2026-11-01'
+- source: Delaware Professional and Occupational Licensing + Disciplinary Actions (Socrata)
+  jurisdiction: US-DE
+  url: https://data.delaware.gov/d/pjnv-eaih
+  format: Socrata CSV/JSON/API; 355,468 rows; daily (discipline dz6p-akeq 8,508)
+  bulk_available: true
+  terms_notes: DELPROS (Salesforce) disclaimer "No user may claim detrimental reliance"; no CAPTCHA
+  robots_notes: delpros.delaware.gov Allow all (sfdc default); data.delaware.gov Crawl-delay 1
+  copyright_posture: not covered on Wikipedia page; dataset Public Domain
+  personal_data_fields: last/first name, license no, type, city/state/zip, dates, status, disciplinary flag
+  verified_on: '2026-11-01'
+- source: Florida DBPR Alcoholic Beverages and Tobacco public records
+  jurisdiction: US-FL
+  url: https://www2.myfloridalicense.com/alcoholic-beverages-and-tobacco/public-records/
+  format: 14 CSV license files plus daily activity and delinquent lists, daily or every two hours
+  bulk_available: true
+  terms_notes: DBPR ReadMe/Disclaimer, Ch. 119
+  robots_notes: www2 robots blocks WP admin only
+  copyright_posture: 'Microdecisions v. Skinner (2004): public domain absent statute'
+  personal_data_fields: Licensee names, addresses
+  verified_on: '2026-11-01'
+- source: Florida DBPR Construction Industry licensee extract
+  jurisdiction: US-FL
+  url: https://www2.myfloridalicense.com/sto/file_download/extracts//CONSTRUCTIONLICENSE_1.csv
+  format: CSV (47.3 MB, weekly; discipline CSVs per FY)
+  bulk_available: true
+  terms_notes: Ch.119 public records; ReadMe says no tech support, weekly refresh; lookup references Terms of Use (text not located); emails are public records (455.275)
+  robots_notes: www2 robots blocks WP admin only; www robots 404
+  copyright_posture: Microdecisions v. Skinner (2004) — public records public domain absent statute
+  personal_data_fields: individual licensee name, DBA, mailing/street address (often home), county, dates, status
+  verified_on: '2026-11-01'
+- source: Georgia SOS Professional Licensing Boards roster request
+  jurisdiction: US-GA
+  url: https://sos.ga.gov/page/licensing-roster-requests
+  format: paid text-file roster (per search snippet); verify.sos.ga.gov ASP.NET lookup
+  bulk_available: unknown
+  terms_notes: Cloudflare 403 on verify.sos.ga.gov and sos.ga.gov; verify site "intended… for verification only"
+  robots_notes: robots.txt returns Cloudflare 302/403
+  copyright_posture: GA cannot claim copyright on public records absent statute (Wikipedia page)
+  personal_data_fields: name, city/state/zip, county, issue/expiration dates (per roster description)
+  verified_on: '2026-11-01'
+- source: Hawaii DCCA PVL public license search (mypvl)
+  jurisdiction: US-HI
+  url: https://mypvl.dcca.hawaii.gov/public-license-search/
+  format: JS app behind Cloudflare (403 to non-browser clients)
+  bulk_available: unknown
+  terms_notes: eHawaii ToU bans automated means (scripts, web crawlers, screen scrapers) and commercial use/resale of derived data without written agreement (https://portal.ehawaii.gov/page/terms-of-use/)
+  robots_notes: 'Content-Signal search=yes, ai-train=no, use=reference; Disallow for ClaudeBot/GPTBot/CCBot etc.; Allow: / for *'
+  copyright_posture: UIPA HRS ch. 92F; eHawaii ToU asserts no commercial duplication of site content
+  personal_data_fields: RME names tied to company licenses (per open-data stub); others unknown
+  verified_on: '2026-11-01'
+- source: Iowa DIAL Active Construction Contractor Registrations (Iowa Data Hub)
+  jurisdiction: US-IA
+  url: https://data.iowa.gov/catalog/dataset/1052
+  format: CSV/JSON download (18,204 rows, weekly, CC BY 4.0)
+  bulk_available: true
+  terms_notes: CC BY 4.0; official lookup https://laborportal.iwd.iowa.gov/iwd_portal/publicSearch/public returned 404
+  robots_notes: 'data.iowa.gov: Content-Signal ai-train=no; AI bots disallowed; Cloudflare challenge on API paths'
+  copyright_posture: Iowa Code ch. 22; open data CC BY 4.0; DIAL withholds DOB/home address/contact details
+  personal_data_fields: unknown (columns not rendered); registrant/business names expected
+  verified_on: '2026-11-01'
+- source: Idaho DOPL eDOPL public search (Contractors Board registration)
+  jurisdiction: US-ID
+  url: https://edopl.idaho.gov/OnlineServices/?link=PubSearch
+  format: JS SPA
+  bulk_available: false
+  terms_notes: none seen; public records request form at https://dopl.idaho.gov/public-records-request/
+  robots_notes: 'edopl.idaho.gov: User-agent: * Disallow: /'
+  copyright_posture: Idaho Code 74-120 bars agency distribution of lists for mailing/telephone lists without consent
+  personal_data_fields: unknown
+  verified_on: '2026-11-01'
+- source: Illinois IDFPR Professional Licensing (Socrata) incl. Roofing Contractors
+  jurisdiction: US-IL
+  url: https://data.illinois.gov/Business-and-Workforce/Professional-Licensing/pzzh-kp68
+  format: Socrata CSV/JSON API (4,418,192 rows; 34,107 ROOFING CONTRACTOR)
+  bulk_available: true
+  terms_notes: ODbL license; single lookup https://online-dfpr.micropact.com/lookup/licenselookup.aspx returns 403 to non-browsers
+  robots_notes: 'online-dfpr.micropact.com: Crawl-delay 60, Request-rate 1/10, /Lookup/ disallowed for named bots'
+  copyright_posture: Illinois FOIA 5 ILCS 140 (commercial-purpose requests 140/3.1); dataset ODbL
+  personal_data_fields: individual first/middle/last name, business name/DBA, city/state/zip/county, dates, status, discipline fields; no street address/phone/email
+  verified_on: '2026-11-01'
+- source: City of Chicago Dept of Buildings Licensed Contractors (General Contractor Classes A-E)
+  jurisdiction: US-IL-Chicago
+  url: https://webapps1.chicago.gov/licensedcontractors/general
+  format: DataTables page fed by JSON endpoint https://webapps1.chicago.gov/licensedcontractors/allcontractors/paginated/general?draw=1&start=0&length=N (recordsTotal 11,665 active GCs); daily refresh banner
+  bulk_available: true
+  terms_notes: City of Chicago Data Terms of Use (https://www.chicago.gov/city/en/narr/foia/data_disclaimer.html) - no warranty, derivative apps must display City disclaimer, City reserves IP, indemnity; no CAPTCHA; not on data.cityofchicago.org
+  robots_notes: https://webapps1.chicago.gov/robots.txt returns 200 with empty body
+  copyright_posture: City reserves any IP rights under Data Terms of Use; Illinois FOIA 5 ILCS 140
+  personal_data_fields: business name (incl. sole proprietors), business address, phone, license class, license expiration, insurance expiration
+  verified_on: '2026-11-01'
+- source: Indiana PLA license download files (paid) / MyLicense eVerification
+  jurisdiction: US-IN
+  url: https://secure.in.gov/pla/license/download-license-files
+  format: 'CSV (paid: $150 + $10/1,000 records); lookup https://mylicense.in.gov/everification/Search.aspx (ASP.NET, reCAPTCHA)'
+  bulk_available: true
+  terms_notes: must agree to user conditions before download; REST API requires credentials (https://secure.in.gov/pla/license/verification-api)
+  robots_notes: 'mylicense.in.gov: Content-Signal search=yes, ai-train=no; AI bots disallowed'
+  copyright_posture: APRA IC 5-14-3; IC 25-1-5-1 home phone/email confidential
+  personal_data_fields: name, license number, address, issue/expiration dates, status
+  verified_on: '2026-11-01'
+- source: Johnson County (KS) Contractor Licensing search and download files (no state GC license in Kansas)
+  jurisdiction: US-KS-Johnson-County
+  url: https://cls.jocogov.org/contractorlicensingdownload.txt
+  format: semicolon-delimited text (10,825 lines) + company file (4,418 lines); HTML search https://cls.jocogov.org/searchcontractor
+  bulk_available: true
+  terms_notes: none seen
+  robots_notes: not checked
+  copyright_posture: 'KORA K.S.A. 45-220(c)/45-230: certification that name/address lists not used for commercial solicitation'
+  personal_data_fields: 'licensee first/last/MI, company, address, city, zip, phone, fax, status (e.g., Inactive: Insurance Expired), class flags'
+  verified_on: '2026-11-01'
+- source: Kentucky DHBC licensee search (electrical, HVAC, plumbing; no state GC license)
+  jurisdiction: US-KY
+  url: https://dhbc.ky.gov/Search/HBC_List_Licensees.aspx
+  format: ASP.NET WebForms HTML
+  bulk_available: false
+  terms_notes: © Commonwealth of Kentucky. All rights reserved.
+  robots_notes: robots.txt 404
+  copyright_posture: KORA KRS 61.870-61.884; KRS 61.874 commercial-purpose fees/certification (not fetched)
+  personal_data_fields: licensee name, trade name, license number, dates, status
+  verified_on: '2026-11-01'
+- source: Louisiana LSLBC public contractor search (ARL Systems)
+  jurisdiction: US-LA
+  url: https://arlspublic.lslbc.louisiana.gov/Public/Search
+  format: ASP.NET MVC + AJAX HTML (POST /Public/_DetailedSearch/; GET /Public/_DisplayOnlineDetails/?key=)
+  bulk_available: unknown
+  terms_notes: 'lslbc.louisiana.gov ToU: personal, non-commercial use only; commercial use requires written consent; search ''provided as a courtesy'''
+  robots_notes: arlspublic robots.txt 404
+  copyright_posture: La. Public Records Law R.S. 44:1 et seq.
+  personal_data_fields: name, mailing address, phone, email, license/status/dates, qualifying party, insurers/policy numbers (WC, GL)
+  verified_on: '2026-11-01'
+- source: MA OCABR Home Improvement Contractor registration (MA Contractor Hub)
+  jurisdiction: US-MA
+  url: https://contractorhub.mass.gov/
+  format: unknown (TLS failure / 503 from our egress; legacy services.oca.state.ma.us/hic 503)
+  bulk_available: unknown
+  terms_notes: unreachable; mass.gov snippet says hub shows registration status and disciplinary history
+  robots_notes: not retrievable
+  copyright_posture: as above
+  personal_data_fields: unknown (HIC registrants are businesses/sole proprietors)
+  verified_on: '2026-11-01'
+- source: Massachusetts DOL/OPSI Construction Supervisor License verification (MyLicense)
+  jurisdiction: US-MA
+  url: https://madpl.mylicense.com/verification/
+  format: HTML form (MyLicense ASP.NET WebForms); per-search data-file export offered at no cost (format unstated)
+  bulk_available: unknown
+  terms_notes: 'Page: information "made available as a public service by the Division of Standards"; no commercial-use clause seen; mass.gov itself returned 403 to the fetcher; MA Professional Licensing API and DOL list-request form UNVERIFIED'
+  robots_notes: madpl.mylicense.com/robots.txt 404; mass.gov/robots.txt 403
+  copyright_posture: 'Secretary of the Commonwealth: state agency records in Archives are not copyrighted (Wikipedia subnational page); G.L. c.66 s.10 public records'
+  personal_data_fields: Individual licensee first/last name, city/state/zip/county, license number, status
+  verified_on: '2026-11-01'
+- source: Maryland MHIC Home Improvement Public Query
+  jurisdiction: US-MD
+  url: https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=HIC::HIC_qselect
+  format: Perl CGI HTML forms (POST)
+  bulk_available: false
+  terms_notes: disciplinary actions not online ('contact us'); active licensees only
+  robots_notes: 'Content-Signal: ai-train=no, search=yes, ai-input=no; Disallow /ELS_applications/cgi-bin/'
+  copyright_posture: Maryland PIA GP §4-101 et seq.; §4-333 licensing records
+  personal_data_fields: contractor personal name, trade name, business address, expiration, category, registration number, salesperson names
+  verified_on: '2026-11-01'
+- source: Maine OPOR ALMS Online license search (electricians, plumbers; no state GC license)
+  jurisdiction: US-ME
+  url: https://www.pfr.maine.gov/ALMSOnline/ALMSQuery/
+  format: ASP.NET WebForms; per-query CSV export (ExportToCSV.aspx)
+  bulk_available: true
+  terms_notes: Copyright © Sauper Associates footer; no use terms seen
+  robots_notes: Disallow detail pages, SearchResults.aspx, ExportToCSV.aspx, ExportToPDF.aspx, session URLs; Crawl-delay 10
+  copyright_posture: FOAA 1 M.R.S. §408-A; fee waiver only when not primarily commercial
+  personal_data_fields: status, authorities, contact information, disciplinary actions
+  verified_on: '2026-11-01'
+- source: MI LARA Bureau of Construction Codes licensee lookup (Accela)
+  jurisdiction: US-MI
+  url: https://aca-prod.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?isLicensee=Y&TabName=APO
+  format: Accela Citizen Access (ASP.NET WebForms, iframe); annual Disciplinary Action Report PDFs FY08-FY26
+  bulk_available: false
+  terms_notes: BCC lists only via FOIA since 2019-03-01 (michigan.gov/lara/bureau-list/bcc/list-requests); no automated-access clause seen; data.michigan.gov has no contractor dataset
+  robots_notes: www.michigan.gov allows (only rss/podcast paths disallowed); aca-prod.accela.com robots not retrieved
+  copyright_posture: no statute asserting copyright found; FOIA MCL 15.231 et seq.; Wikipedia page has no Michigan entry
+  personal_data_fields: individual licensee names, business names, city/state (full address exposure unconfirmed)
+  verified_on: '2026-11-01'
+- source: MN DLI Construction Codes & Licensing Division nightly export + iMS lookup
+  jurisdiction: US-MN
+  url: https://secure.doli.state.mn.us/ccld/data/MNDLILicRegCertExport.zip
+  format: ZIP of CSV (11.1 MB, nightly) + per-type CSVs (e.g. MNDLILicRegCertExport_Residential_Contractors.csv, 59,398 rows); iMS HTML lookup at https://ims.dli.mn.gov/ims/Account/Login (guest); enforcement PDFs yearly
+  bulk_available: true
+  terms_notes: no terms of use on export page; only a "Disclaimer" link; iMS vendor Intuitive Municipal Solutions
+  robots_notes: www.dli.mn.gov standard Drupal robots; secure.doli.state.mn.us robots.txt returns error page
+  copyright_posture: Minn. Stat. §13.03 (public data accessible; subd.5 software copyright only); opinions conflict per Wikipedia
+  personal_data_fields: individual qualifying persons' names, street addresses, phone, email (field present), license dates, enforcement flag
+  verified_on: '2026-11-01'
+- source: Missouri (no state GC license; local programs; statewide electrical via Div. of Professional Registration)
+  jurisdiction: US-MO
+  url: https://pr.mo.gov/ (unreachable); https://compasskc.kcmo.org/ (Kansas City, Tyler EnerGov)
+  format: unknown / Tyler EnerGov Self Service (Angular)
+  bulk_available: unknown
+  terms_notes: pr.mo.gov TLS failure and 503; kcmo.gov and stlouiscountymo.gov 403; data.mo.gov has no contractor license dataset
+  robots_notes: not retrieved
+  copyright_posture: RSMo 630.095 allows executive departments to hold copyright in works for hire (Wikipedia); Sunshine Law RSMo ch. 610
+  personal_data_fields: unknown
+  verified_on: '2026-11-01'
+- source: Mississippi State Board of Contractors consolidated search
+  jurisdiction: US-MS
+  url: http://search.msboc.us/ConsolidatedSearch.cfm
+  format: ColdFusion/Lucee HTML POST forms over HTTP; Detail.cfm per contractor; violations search Search_violations2.cfm
+  bulk_available: false
+  terms_notes: public records request policy/form PDFs (Apr 2026) at msboc.us/about/public-information; site footer "All rights reserved"; disclosure urges contacting office before relying on data
+  robots_notes: search.msboc.us Content-Signal search=yes,ai-train=no,use=reference and Disallow for ClaudeBot/anthropic-ai/GPTBot/CCBot etc.; www.msboc.us Crawl-delay 10
+  copyright_posture: Miss. Public Records Act §25-61-1 et seq.; board asserts "All rights reserved" on website; Wikipedia no MS entry
+  personal_data_fields: qualifying party names, officer names/titles, business address, phone, fax; sole proprietors by personal name with street address
+  verified_on: '2026-11-01'
+- source: Montana DLI Construction Contractor License (CCL) Program licensee lookup
+  jurisdiction: US-MT
+  url: https://ebizws.mt.gov/PUBLICPORTAL/searchform?mylist=licenses
+  format: custom public portal behind WAF ("Request Rejected"); Accela portal at https://ebiz.mt.gov/pol/; DLI says list download by license type available (phone excluded)
+  bulk_available: unknown
+  terms_notes: lookup rejected our requests (WAF); department does not guarantee accuracy; Licensee Mailing List request via ebiz
+  robots_notes: ebizservices.mt.gov unreachable (502); erd.dli.mt.gov robots 404
+  copyright_posture: Mont. Const. Art. II §9 right to know; MCA Title 2 ch. 6; Wikipedia no MT entry
+  personal_data_fields: licensee names and addresses (phone excluded from downloads)
+  verified_on: '2026-11-01'
+- source: NC Board of Examiners of Electrical Contractors (ARL Systems portal)
+  jurisdiction: US-NC
+  url: https://arls-public.ncbeec.org/Public/Search
+  format: HTML (same ARL platform)
+  bulk_available: false
+  terms_notes: none found
+  robots_notes: not checked
+  copyright_posture: as above
+  personal_data_fields: licensee first/last name, company, phone, address
+  verified_on: '2026-11-01'
+- source: NC Licensing Board for General Contractors (ARL Systems portal)
+  jurisdiction: US-NC
+  url: https://portal.nclbgc.org/Public/Search
+  format: HTML (ASP.NET MVC/jQuery DataTables)
+  bulk_available: false
+  terms_notes: none found on portal; nclbgc.org behind Cloudflare challenge
+  robots_notes: 'www.nclbgc.org: ''User-agent: * Disallow: /'' (Google/Bing allowed, crawl-delay 10); portal.nclbgc.org robots.txt 404'
+  copyright_posture: 'N.C.G.S. 132-1: public records are property of the people https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_132/GS_132-1.html'
+  personal_data_fields: qualifier first/last name, qualifier number, company, phone, street address
+  verified_on: '2026-11-01'
+- source: ND Secretary of State FirstStop contractor search + Data List Requests
+  jurisdiction: US-ND
+  url: https://firststop.sos.nd.gov/search/contractor
+  format: React SPA; paid Excel list via https://www.sos.nd.gov/services/data-list-requests ($40 one-time / $40 per month)
+  bulk_available: true
+  terms_notes: ND Login account required to buy lists; generic disclaimer https://www.sos.nd.gov/disclaimer
+  robots_notes: firststop robots.txt returns SPA shell (no rules)
+  copyright_posture: NDCC 44-04-18 open records https://ndlegis.gov/cencode/t44c04.pdf
+  personal_data_fields: contractor name, mailing address, phone, class, WSI/standing flags
+  verified_on: '2026-11-01'
+- source: Nebraska DOL Contractor Registration search
+  jurisdiction: US-NE
+  url: https://dol.nebraska.gov/conreg/Search
+  format: ASP.NET MVC server-rendered HTML; POST /conreg/Search/AdvancedSearch; 25 rows per page; no CAPTCHA
+  bulk_available: false
+  terms_notes: Disclaimer that registration "does not ensure quality of work or protect against fraud"; no terms of use; Neb. Rev. Stat. 48-2117 requires the database online with workers-comp status; unpaid-fines list link returned 404 on 2026-11-01
+  robots_notes: robots.txt disallows only /labor_certs.zip
+  copyright_posture: Neb. Rev. Stat. 84-712 public records; no copyright assertion found
+  personal_data_fields: Sole proprietors by personal name with street address; phone; employee count; workers-comp status
+  verified_on: '2026-11-01'
+- source: NH OPLC license lookup (electricians, plumbers)
+  jurisdiction: US-NH
+  url: https://www.oplc.nh.gov/license-lookup
+  format: unknown (403 Akamai for all nh.gov hosts)
+  bulk_available: unknown
+  terms_notes: blocked at edge for our egress; data.nh.gov API also 403
+  robots_notes: robots.txt 403 on oplc.nh.gov, forms.nh.gov, nh.gov
+  copyright_posture: RSA 91-A Right-to-Know; Wikipedia no NH entry
+  personal_data_fields: unknown
+  verified_on: '2026-11-01'
+- source: New Jersey Division of Consumer Affairs license verification and Verification_Bulk download (MyLicense)
+  jurisdiction: US-NJ
+  url: https://newjersey.mylicense.com/verification/
+  format: MyLicense ASP.NET WebForms; bulk portal at https://newjersey.mylicense.com/Verification_Bulk/ (download not exercised; file format not shown)
+  bulk_available: unknown
+  terms_notes: Site states it is "intended to be used for VERIFICATION ONLY"; njconsumeraffairs.gov behind Imperva challenge; DCA Box standard files UNVERIFIED; data.nj.gov has no licensee dataset
+  robots_notes: newjersey.mylicense.com/robots.txt 404; data.nj.gov Crawl-delay 1
+  copyright_posture: 'Burnett v. County of Bergen (2008): OPRA records may be reproduced including commercially; N.J.S.A. 52:18A-234.5 open data'
+  personal_data_fields: Business names and addresses; individual licensee names and city for person search
+  verified_on: '2026-11-01'
+- source: NM RLD Construction Industries Division (PSI license search)
+  jurisdiction: US-NM
+  url: https://public.psiexams.com/search.jsp
+  format: HTML/JSP form, CAPTCHA
+  bulk_available: false
+  terms_notes: CAPTCHA required per search; footer 'Copyright 2000-2026 PSI. ALL RIGHTS RESERVED'; no state ToU
+  robots_notes: public.psiexams.com/robots.txt 404
+  copyright_posture: NM IPRA (NMSA 14-2); no copyright assertion found; IPRA request page https://www.rld.nm.gov/about-us/public-information-hub/inspection-of-public-records/
+  personal_data_fields: individual certificate no., first/last name, city, zip; company license no., name, city, zip
+  verified_on: '2026-11-01'
+- source: Nevada State Contractors Board license / listing / discipline search (GLSuite)
+  jurisdiction: US-NV
+  url: https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx
+  format: GLSuite ASP.NET WebForms HTML; listing search by county/classification; paid lists Excel/PDF via mail-in form ($100/$200)
+  bulk_available: true
+  terms_notes: curl 403 via Azure Application Gateway (WebFetch OK); disclaimer "provided as a courtesy… neither completeness nor accuracy is guaranteed"; active lists free, other statuses by paid request; public records NRS 239
+  robots_notes: www.nvcontractorsboard.com Content-Signal ai-train=no + AI-bot Disallows; app host robots 404
+  copyright_posture: NRS 239.010 public records open to inspection/copying; Wikipedia no NV entry
+  personal_data_fields: principal/qualified individual names, business mailing address, phone, monetary limit
+  verified_on: '2026-11-01'
+- source: NYS DOL Contractor Registry Certificate (data.ny.gov)
+  jurisdiction: US-NY
+  url: https://data.ny.gov/d/i4jv-zkey
+  format: Socrata (CSV/JSON/SODA)
+  bulk_available: true
+  terms_notes: Open NY terms https://data.ny.gov/dataset/OPEN-NY-Terms-Of-Use/77gx-ii52 (JS page, not quoted); no state GC license exists
+  robots_notes: not checked
+  copyright_posture: NY state works copyrightable per courts (County of Suffolk v. First American, 2d Cir. 2001) — Wikipedia
+  personal_data_fields: business officers names, business address, phone, WC insurance flag, debarment flags
+  verified_on: '2026-11-01'
+- source: New York SLA Active, Pending and Inactive Liquor Licenses
+  jurisdiction: US-NY
+  url: https://data.ny.gov/Economic-Development/Current-Liquor-Authority-Active-Licenses/9s3h-dpkz
+  format: Socrata; nightly; companion sets f8i8-k2gm (pending) and 6dg3-2z7i (inactive)
+  bulk_available: true
+  terms_notes: Open NY Terms of Use (JS-rendered, text not extracted)
+  robots_notes: Standard Socrata
+  copyright_posture: 'County of Suffolk v. First American (2d Cir. 2001): state works copyrightable'
+  personal_data_fields: Principal names, premise addresses
+  verified_on: '2026-11-01'
+- source: NYC DCWP Issued Licenses (incl. Home Improvement Contractor)
+  jurisdiction: US-NY-NYC
+  url: https://data.cityofnewyork.us/d/w7w3-xahh
+  format: Socrata (CSV/JSON/SODA), weekly, 72,452 rows
+  bulk_available: true
+  terms_notes: same nyc.gov ToU; lookup https://a866-dcwpbp.nyc.gov/search is JS SPA, no login
+  robots_notes: data.cityofnewyork.us Crawl-delay 1
+  copyright_posture: as above
+  personal_data_fields: business/DBA name, contact phone, address, BBL/BIN, lat/long
+  verified_on: '2026-11-01'
+- source: NYC DOB License Info (NYC Open Data)
+  jurisdiction: US-NY-NYC
+  url: https://data.cityofnewyork.us/d/t8hj-ruu2
+  format: Socrata (CSV/JSON/SODA), daily, 103,338 rows
+  bulk_available: true
+  terms_notes: 'nyc.gov ToU: site materials ''are the property of the City of New York. All rights are reserved'' (https://www.nyc.gov/main/terms-of-use); dataset has no license field'
+  robots_notes: 'data.cityofnewyork.us: Crawl-delay 1, browse disallowed; a810-bisweb.nyc.gov robots.txt 403 (Akamai)'
+  copyright_posture: City asserts copyright on nyc.gov content; open data published without explicit license
+  personal_data_fields: licensee first/last name, business name, business email, business phone, business address
+  verified_on: '2026-11-01'
+- source: Ohio OCILB eLicense Center roster download (legacy) / elicense.ohio.gov lookup
+  jurisdiction: US-OH
+  url: https://elicense4.com.ohio.gov/Lookup/GenerateRoster.aspx
+  format: Excel or Text roster; lookup HTML (Salesforce at https://elicense.ohio.gov/oh_verifylicense)
+  bulk_available: true
+  terms_notes: '''No Fee Required''; no ToU clause found; no state GC license (trades only)'
+  robots_notes: 'elicense.ohio.gov: default sfdc allow-all; elicense4 robots.txt 404'
+  copyright_posture: ORC 149.43 public records https://codes.ohio.gov/ohio-revised-code/section-149.43
+  personal_data_fields: individual licensee first/last/maiden name, credential number, state/county
+  verified_on: '2026-11-01'
+- source: Oklahoma Construction Industries Board (GLSuite licensee search; HBE roofing search)
+  jurisdiction: US-OK
+  url: https://okcibv7prod.glsuite.us/GLSuiteWeb/Clients/OKCIB/Public/LicenseeSearch/LicenseeSearch.aspx
+  format: GL Solutions ASP.NET behind Azure WAF JS challenge (HTTP 403 to non-browser clients)
+  bulk_available: false
+  terms_notes: CIB disclaimer https://oklahoma.gov/cib/disclaimer-and-policies.html (no accuracy guarantee); no state GC license
+  robots_notes: 'okcibv7prod.glsuite.us: ''User-agent: * Disallow: /'''
+  copyright_posture: Oklahoma Open Records Act 51 O.S. 24A (not fetched; justia 403)
+  personal_data_fields: unknown (blocked)
+  verified_on: '2026-11-01'
+- source: Oregon CCB Active Licenses (data.oregon.gov)
+  jurisdiction: US-OR
+  url: https://data.oregon.gov/d/g77e-6bhs
+  format: Socrata (CSV/JSON/SODA), daily, 56,653 rows, license Public Domain
+  bulk_available: true
+  terms_notes: search.ccb.state.or.us uses reCAPTCHA v3; dataset replaces mailing-list requests per CCB guide PDF
+  robots_notes: 'search.ccb.state.or.us: ''User-Agent: * Disallow: /''; data.oregon.gov Crawl-delay 1'
+  copyright_posture: Dataset Public Domain (USGOV_WORKS); ORS 192.324 https://oregon.public.law/statutes/ors_192.324
+  personal_data_fields: full_name, rmi_name, address, phone, fax, bond/insurance company+amount+expiry
+  verified_on: '2026-11-01'
+- source: PA Attorney General HICPA registration search
+  jurisdiction: US-PA
+  url: https://hicsearch.attorneygeneral.gov/
+  format: unknown (TLS chain error / HTTP 503 at check time)
+  bulk_available: false
+  terms_notes: '''Registration under HICPA is not an endorsement''; no bulk list; RTK route https://www.attorneygeneral.gov/right-to-know/'
+  robots_notes: 'hicsearch robots.txt: ''User-Agent: * Disallow: /'''
+  copyright_posture: 71 P.S. 636 DGS copyrights Commonwealth publications (Wikipedia)
+  personal_data_fields: business name, address, phone, registration no., expiration (per press report)
+  verified_on: '2026-11-01'
+- source: RI Contractors' Registration and Licensing Board registrant search
+  jurisdiction: US-RI
+  url: https://www.crb.ri.gov/consumer/search-registrantlicensee
+  format: unknown (Cloudflare 403 to curl and WebFetch)
+  bulk_available: unknown
+  terms_notes: could not load; data.ri.gov also 403
+  robots_notes: crb.ri.gov robots.txt standard Drupal allow
+  copyright_posture: RI APRA 38-2-3 https://webserver.rilegislature.gov/Statutes/TITLE38/38-2/38-2-3.htm
+  personal_data_fields: unknown
+  verified_on: '2026-11-01'
+- source: SC LLR Contractor's Licensing Board licensee lookup / roster request / public orders
+  jurisdiction: US-SC
+  url: https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69
+  format: ASP.NET WebForms + reCAPTCHA; roster $10 PDF form; orders HTML table + PDFs
+  bulk_available: true
+  terms_notes: 'Roster form cites S.C. Code 30-2-50: ''no person or private entity shall knowingly obtain or use any personal information obtained from a public body for commercial solicitation''; bulk verification requires login and ''LLR may discontinue'''
+  robots_notes: verify.llronline.com robots.txt 404
+  copyright_posture: SC FOIA Title 30 ch.4 https://www.scstatehouse.gov/code/t30c004.php; Seago v. Horry County permits gov't copyright
+  personal_data_fields: licensed name (company or individual), first name, city, classification
+  verified_on: '2026-11-01'
+- source: South Dakota (DOR excise tax license; Electrical & Plumbing Commissions)
+  jurisdiction: US-SD
+  url: https://dlr.sd.gov/electrical/licensing.aspx
+  format: static ASP.NET pages; no online lookup found
+  bulk_available: false
+  terms_notes: no state GC license; no lookup; DLR footer disclaimer only
+  robots_notes: not checked
+  copyright_posture: SDCL 1-27 open records https://sdlegislature.gov/Statutes/1-27
+  personal_data_fields: n/a
+  verified_on: '2026-11-01'
+- source: Tennessee Board for Licensing Contractors (TDCI) - Verify Public Search
+  jurisdiction: US-TN
+  url: https://search.cloud.commerce.tn.gov/
+  format: Next.js SPA over Tyler entellitrak REST API (vendor claim); Tableau Server dashboard https://data.tn.gov/t/Public/views/ContractorandQAdata/PublicDashboard with CSV View Data; monthly discipline PDFs https://www.tn.gov/commerce/dar/rb.html
+  bulk_available: unknown
+  terms_notes: No terms/no-automation clause found; www.tn.gov WAF returns 403 to non-browser fetchers; reCAPTCHA endpoints present in SPA bundle; vendor reports 403 to datacenter IPs
+  robots_notes: 'www.tn.gov robots.txt "Allow: /"; search.cloud.commerce.tn.gov robots.txt 404'
+  copyright_posture: No explicit state claim found; TN Public Records Act T.C.A. 10-7-503; Wikipedia page has no TN entry
+  personal_data_fields: business name, license number/classification, status, expiration, city/county/zip, qualifying agent names; no phone/home address observed (vendor)
+  verified_on: '2026-11-01'
+- source: Texas State Board of Plumbing Examiners public license search
+  jurisdiction: US-TX
+  url: https://vo.licensing.hpc.texas.gov/datamart/selSearchType.do
+  format: Versa (Iron Data/Tyler) JSP HTML form
+  bulk_available: false
+  terms_notes: none found
+  robots_notes: robots.txt 404
+  copyright_posture: Texas Public Information Act Gov't Code ch. 552
+  personal_data_fields: licensee name, license number, status, expiration, rank date
+  verified_on: '2026-11-01'
+- source: Texas TABC License Information; Pending Original New; Change of Location
+  jurisdiction: US-TX
+  url: https://data.texas.gov/dataset/TABC-License-Information/7hf9-qc9f
+  format: Socrata; 53 columns; companion datasets mxm5-tdpj and wrzc-mwf2; updated 2026-11-01
+  bulk_available: true
+  terms_notes: Open data; status and status-change date fields
+  robots_notes: Standard Socrata
+  copyright_posture: Texas Public Information Act ch. 552
+  personal_data_fields: Licensee and officer names, premise addresses
+  verified_on: '2026-11-01'
+- source: Texas TDLR All Licenses (data.texas.gov mirror)
+  jurisdiction: US-TX
+  url: https://data.texas.gov/d/7358-krk7
+  format: Socrata; 966,778 rows; 18 columns (license type, number, business and owner name, addresses, phones, expiration, subtype); no status column (active listing); rowsUpdatedAt 2026-10-19
+  bulk_available: true
+  terms_notes: License not specified in metadata; attribution TDLR; posting frequency not stated
+  robots_notes: data.texas.gov standard Socrata robots
+  copyright_posture: Texas Public Information Act Gov. Code ch. 552; TDLR disclaimer permits non-misleading copying with attribution
+  personal_data_fields: Owner name, owner telephone, mailing address (often home for individual electricians)
+  verified_on: '2026-11-01'
+- source: Texas TDLR License Data Files (electricians, electrical contractors, A/C contractors)
+  jurisdiction: US-TX
+  url: https://www.tdlr.texas.gov/LicenseSearch/licfile.asp
+  format: daily CSV (e.g. https://www.tdlr.texas.gov/dbproduction2/ltlicfile.csv 190 MB; Lteecele.csv; ltairref.csv; Ltelcall.csv; spec lrformat.txt); Socrata mirror https://data.texas.gov/d/7358-krk7 (966,778 rows, updated 2026-10-19); search https://www.tdlr.texas.gov/LicenseSearch/ (ASP HTML form); enforcement https://www.tdlr.texas.gov/cimsfo/fosearch.asp
+  bulk_available: true
+  terms_notes: disclaimer.htm - no fee may be charged to access/use/reproduce; copies must cite source; TDLR does not sell personal info; SSN/DL/email not public; no CAPTCHA
+  robots_notes: https://www.tdlr.texas.gov/robots.txt Disallow /*.csv and /ithelp/
+  copyright_posture: Texas Public Information Act Gov't Code ch. 552; TDLR claims IP in logos only (https://www.tdlr.texas.gov/disclaimer.htm)
+  personal_data_fields: individual licensee name, mailing address (may be home/PO box), phone, business name/address/phone, county, expiration
+  verified_on: '2026-11-01'
+- source: Utah DOPL Licensee Lookup and Verification System
+  jurisdiction: US-UT
+  url: https://secure.utah.gov/llv/search/index.html
+  format: HTML POST form with reCAPTCHA v3; paid lists via Utah List Service https://secure.utah.gov/datarequest/professionals/index.html ($5 min/200 recs, $0.03/rec, full list $0.01/rec); opt-in CBR https://services.commerce.utah.gov/cbr/
+  bulk_available: true
+  terms_notes: address/phone/email exempt (Utah Code 58-1-106(2)) released only with DOPL approval; utah.gov disclaimer permits copy/distribute for personal or informational use; state may charge fees
+  robots_notes: 'https://secure.utah.gov/robots.txt "User-agent: *" with no Disallow'
+  copyright_posture: Records are state property (Utah Code 63A-12-105); entities may control copyright by policy (63G-2-201); GRAMA 63G-2-101 (Wikipedia subnational-copyright page)
+  personal_data_fields: full name, license number/type, status, issue/exp dates, disciplinary action/docket numbers; address/phone/email restricted
+  verified_on: '2026-11-01'
+- source: Virginia DPOR Regulant Lists and License Lookup
+  jurisdiction: US-VA
+  url: https://www.dpor.virginia.gov/RegulantLists
+  format: About 175 free ASCII tab-delimited .txt files per license code, refreshed every 5 business days (Class A file 2701__crnt.txt fetched, 19 columns); lookup at https://dporweb.dpor.virginia.gov/LicenseLookup/ gated by reCAPTCHA v2
+  bulk_available: true
+  terms_notes: 'Lookup disclaimer: website data "are not the public records of DPOR... may not be up to date at all times"; Web Policy asserts page copyright and logo restrictions; no scraping clause; regulant files not rate-limited (vendor); disciplinary search behind CAPTCHA, orders since 2002; data.virginia.gov has 0 DPOR datasets'
+  robots_notes: dpor.virginia.gov Drupal default; dporweb robots.txt 404
+  copyright_posture: Va. Code 2.2-3700 FOIA; DPOR footer copyright notice on web pages
+  personal_data_fields: Individual name, business name, address of record (may be home), email when supplied; phone numbers excluded
+  verified_on: '2026-11-01'
+- source: Vermont OPR Find a Professional (residential contractor registration)
+  jurisdiction: US-VT
+  url: https://secure.professionals.vermont.gov/prweb/PRServletCustom/V9csDxL3sXkkjMC_FR2HrA%5B%5B*/!STANDARD?UserIdentifier=LicenseLookupGuestUser
+  format: Pega guest-session web app; "Profession Roster Download" export described at https://sos.vermont.gov/opr/find-a-professional/; monthly discipline PDFs on outside.vermont.gov
+  bulk_available: unknown
+  terms_notes: no terms/no-automation clause found; redirect loop for non-browser fetch
+  robots_notes: robots.txt 404
+  copyright_posture: Vermont Public Records Act 1 V.S.A. 315 et seq.; vermont.gov policy restricts only photos to non-commercial use; no VT entry on Wikipedia page
+  personal_data_fields: name, license/registration number and type, dates, status, city/ZIP, disciplinary action
+  verified_on: '2026-11-01'
+- source: Washington L&I Contractor License Data (General/Bond/Insurance/Principal/Authorized Signer)
+  jurisdiction: US-WA
+  url: https://data.wa.gov/d/m8qx-ubtq
+  format: Socrata CSV/JSON/SODA API; companions bzff-4fmt, ciwg-agsx, 4xk5-x9j6, s7ge-wicw; 161,362 rows; updated 3x daily; verify UI https://secure.lni.wa.gov/verify/ (JS app)
+  bulk_available: true
+  terms_notes: dataset license PDDL (General, Principal), Public Domain (Insurance), unspecified (Bond); vendor reports L&I rate-limits heavy use of verify form; data.wa.gov terms page not found
+  robots_notes: secure.lni.wa.gov/robots.txt redirects to My L&I login page
+  copyright_posture: Works of the State of Washington are copyrighted (Wikipedia subnational-copyright page); Public Records Act RCW 42.56
+  personal_data_fields: business name, address, phone, UBI, principal/owner names and dates, authorized signer names, bond/insurance carrier and policy numbers
+  verified_on: '2026-11-01'
+- source: Washington LCB frequently requested lists (licensees, violations)
+  jurisdiction: US-WA
+  url: https://lcb.wa.gov/records/frequently-requested-lists
+  format: XLSX lists including violations
+  bulk_available: true
+  terms_notes: Page warns Public Records Act lists "may not be used for commercial purposes", RCW 42.56.070(8)
+  robots_notes: Not checked
+  copyright_posture: State works copyrighted (Wikipedia); RCW 42.56
+  personal_data_fields: Licensee names, addresses
+  verified_on: '2026-11-01'
+- source: Wisconsin DSPS LicensE / license search (Dwelling Contractor) and Credential List Purchasing System
+  jurisdiction: US-WI
+  url: https://licensesearch.wi.gov/
+  format: unverified (host unreachable from sandbox); LicensE https://license.wi.gov/ Salesforce Experience Cloud behind Cloudflare (403); paid lists https://dspslicenselist.wi.gov/ ($15/credential type + $4 per 1,000 records; $2,000 all types) per search snippet; orders search https://license.wi.gov/s/public-facing-orders-search
+  bulk_available: unknown
+  terms_notes: Cloudflare WAF blocks non-browser clients; orders search requires "I Agree"; wisconsin.gov policy "material is for the noncommercial use of the general public"
+  robots_notes: license.wi.gov robots.txt Content-Signal search=yes,ai-train=no,use=reference and blocks training crawlers; dsps.wi.gov allows all
+  copyright_posture: State of Wisconsin asserts "sole and exclusive owner of all rights, title and interest", noncommercial use (https://www.wisconsin.gov/Pages/Policies.aspx); Public Records Law Wis. Stat. 19.31
+  personal_data_fields: credential number, name, municipality/state, status, discipline; address in purchased lists unless opted out
+  verified_on: '2026-11-01'
+- source: West Virginia Contractor Licensing Board contractor search and board actions
+  jurisdiction: US-WV
+  url: https://wvclboard.wv.gov/verify/
+  format: Big Picture Software HTML form with paging, "updated in real time"; actions list at https://wvclboard.wv.gov/about/actions.asp (HTML table with final-order PDFs)
+  bulk_available: false
+  terms_notes: 'Disclaimer: no warranty of accuracy, reliability "solely the responsibility of the user"; no CAPTCHA; SB616 (2026) repeal bill introduced, not passed'
+  robots_notes: 'wvclboard.wv.gov/robots.txt: User-agent: * Disallow: / (full crawl disallow)'
+  copyright_posture: '"© 2026 State of West Virginia" footer; W.Va. Code 29B-1-1 FOIA'
+  personal_data_fields: Company, DBA, address, county, phone, classification, expiration; individual names where licensee is an individual
+  verified_on: '2026-11-01'
+- source: Wyoming State Fire Marshal electrical licensing public portal (no state GC license)
+  jurisdiction: US-WY
+  url: https://wyelectrician.imagetrendlicense.com/lms/public/portal
+  format: ImageTrend License SPA with reCAPTCHA v3; local GC licensing by Cheyenne, Casper/Natrona, Laramie, Gillette, Rock Springs
+  bulk_available: false
+  terms_notes: none captured; wyo.gov policies page 503 at fetch
+  robots_notes: robots.txt 404
+  copyright_posture: Wyoming Public Records Act W.S. 16-4-201 et seq.; no WY entry on Wikipedia page
+  personal_data_fields: electrician/contractor name, license type and number, status (expected)
+  verified_on: '2026-11-01'
