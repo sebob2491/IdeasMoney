@@ -19,13 +19,14 @@ One line per decision. Open questions at the bottom are what you answer each wee
 | D-011 | 2026-11-01 | Design-complete before any build. You asked for everything to be designed first and no work done yet. The two repo-setup agents launched minutes earlier were stopped while still reading the designs; neither created branches, files or issues, with one exception recorded in D-012. The Phase 0 scouting session continues because its output (the vertical choice) is a design input, not a build. | You |
 | D-012 | 2026-11-01 | The Track A setup agent pushed one commit to `records-platform` `main` before it was stopped: a README of one paragraph pointing at the designs. Left in place as harmless; say the word and it is removed. | Claude, disclosed |
 | D-013 | 2026-11-01 | The design package is defined in `design/05-master-plan.md` Section 1. Building starts only at Gate G0 (your approval of the package). | You |
+| D-014 | 2026-11-01 | Phase 0 scorecard delivered (`research/phase0-scorecard.md`, 64-entry legal register draft) and merged into the design branch. Verdict: the contractor-licensing hypothesis survives only repositioned as the normalized record set with bond, insurance, discipline, entity resolution and bulk delivery; TradesAPI and Mesh already own per-license verification and monitoring. Decision brief: `design/08-track-a-vertical-decision.md`. | Claude, from the scouting session |
 
 ## Open questions
 
 | ID | Question | Recommendation | Needed by |
 |---|---|---|---|
 | Q-001 | ~~Separate repos or monorepo?~~ Closed by D-004. | | |
-| Q-002 | Track A vertical. Confirm or override the leading hypothesis (contractor licensing and enforcement events) once the Phase 0 scorecard is in. | Decide from the scorecard, not before | End of week 3 |
+| Q-002 | Track A vertical. Scorecard is in. Choose: A, contractor licensing repositioned as the normalized record set, then liquor licenses on the same framework; B, liquor licenses first; C, stop Track A. See `design/08`. | A | With Gate G0 |
 | Q-003 | Track A product name, domain, legal entity, Stripe account. | A neutral descriptive name; an LLC before the first paid customer | Before M3 |
 | Q-004 | ~~Track B setting.~~ Defaulted by D-005 to Sonoran myth, "Dry River." Veto window open until the public web alpha. | | |
 | Q-005 | ~~Where does the existing game go?~~ Closed by D-004: Track B is built inside the `azeroth-idle` repo. | | |

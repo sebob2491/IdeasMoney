@@ -13,13 +13,13 @@ Status: design, 2026-11-01. This is the document that ties the package together.
 | 04 | Track B port inventory | Done; no source exists, extraction plus parity |
 | 05 | Master plan (this document) | Done |
 | 06 | Pipeline detailed specification | Done |
-| 07 | Track A technical design | In progress |
-| 08 | Track A vertical decision | After Phase 0 scorecard and your sign-off |
+| 07 | Track A technical design | Done |
+| 08 | Track A vertical decision brief | Done; your answer to Q-002 pending |
 | 09 | Track B game design document | In progress |
-| 10 | Track B technical design | In progress |
+| 10 | Track B technical design | Done |
 | 11 | Legal and compliance | Done |
 | 12 | Naming shortlists and process | Done |
-| research/phase0-scorecard.md | Phase 0 vertical scorecard | In progress in a separate session |
+| research/phase0-scorecard.md | Phase 0 vertical scorecard | Done |
 
 ## 2. Operating model
 

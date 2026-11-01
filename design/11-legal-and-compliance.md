@@ -14,7 +14,7 @@ Status: design, 2026-11-01. This is not legal advice. It is the list of what the
 
 ### 2.1 Posture
 
-Build only on government public records: statutes and official compilations are not copyrightable under the government-edicts doctrine (*Georgia v. Public.Resource.Org*, 2020), facts are not copyrightable, and federal works are public domain. Avoid consumer platforms entirely: after *Reddit v. Anthropic* (N.D. Cal., Sept 2026) and *Reddit v. Perplexity* (S.D.N.Y., July 2026), terms-of-service contract and DMCA theories survive dismissal even for public data.
+Build only on government public records: statutes and official compilations are not copyrightable under the government-edicts doctrine (*Georgia v. Public.Resource.Org*, 2020), facts are not copyrightable, and federal works are public domain. Avoid consumer platforms entirely: after *Reddit v. Anthropic* (September 2026 ruling denying dismissal) and *Reddit v. Perplexity* (S.D.N.Y., July 2026), terms-of-service contract and DMCA theories survive dismissal even for public data.
 
 ### 2.2 Legal register (gate for every source)
 
