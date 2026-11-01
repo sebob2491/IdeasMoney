@@ -20,13 +20,15 @@ One line per decision. Open questions at the bottom are what you answer each wee
 | D-012 | 2026-11-01 | The Track A setup agent pushed one commit to `records-platform` `main` before it was stopped: a README of one paragraph pointing at the designs. Left in place as harmless; say the word and it is removed. | Claude, disclosed |
 | D-013 | 2026-11-01 | The design package is defined in `design/05-master-plan.md` Section 1. Building starts only at Gate G0 (your approval of the package). | You |
 | D-014 | 2026-11-01 | Phase 0 scorecard delivered (`research/phase0-scorecard.md`, 64-entry legal register draft) and merged into the design branch. Verdict: the contractor-licensing hypothesis survives only repositioned as the normalized record set with bond, insurance, discipline, entity resolution and bulk delivery; TradesAPI and Mesh already own per-license verification and monitoring. Decision brief: `design/08-track-a-vertical-decision.md`. | Claude, from the scouting session |
+| D-015 | 2026-11-01 | Gate G0 passed: you approved the design package with all recommended defaults, including Q-002 = Option A (contractor licensing repositioned as the normalized record set, then liquor licenses). The setup week in `design/05-master-plan.md` Section 9 begins. | You |
+| D-016 | 2026-11-01 | Design branch merged into `main` on your approval, so routines and setup sessions read the package from `main`. | Claude |
 
 ## Open questions
 
 | ID | Question | Recommendation | Needed by |
 |---|---|---|---|
 | Q-001 | ~~Separate repos or monorepo?~~ Closed by D-004. | | |
-| Q-002 | Track A vertical. Scorecard is in. Choose: A, contractor licensing repositioned as the normalized record set, then liquor licenses on the same framework; B, liquor licenses first; C, stop Track A. See `design/08`. | A | With Gate G0 |
+| Q-002 | ~~Track A vertical.~~ Option A by default, accepted with G0 (D-015). | | |
 | Q-003 | Track A product name, domain, legal entity, Stripe account. | A neutral descriptive name; an LLC before the first paid customer | Before M3 |
 | Q-004 | ~~Track B setting.~~ Defaulted by D-005 to Sonoran myth, "Dry River." Veto window open until the public web alpha. | | |
 | Q-005 | ~~Where does the existing game go?~~ Closed by D-004: Track B is built inside the `azeroth-idle` repo. | | |
@@ -35,5 +37,5 @@ One line per decision. Open questions at the bottom are what you answer each wee
 | Q-009 | ~~Create the Track A repo.~~ Closed by D-007. | | |
 | Q-010 | Rename the `azeroth-idle` repo once the game has a final name, so the Blizzard mark leaves the project URL. Keep it private until then. | Rename at M3 | Before the Steam page |
 | Q-011 | ~~Where is the readable source?~~ Closed by D-010: it does not exist. One cheap check remains worth doing if convenient: look in the "Claude Work" folder for any subfolder containing `src/` or `package.json`. Original text: Where is the readable source of the game? The repo holds only the compiled bundle. Look in the "Claude Work" folder on your DESKTOP-GUGKJK5 computer for a project folder containing `src/` and `package.json` (or the readable `azeroth-idle.html`). Zip that folder without `node_modules` and upload the zip to the `azeroth-idle` repo with GitHub's "Add file, Upload files" button, the same way the early commits were made. | Find and upload; if it is gone, say so and the extraction path starts | Before Track B M0 port work |
-| Q-012 | Gate G0: approve the design package (docs 00 to 12 plus the Phase 0 scorecard when it lands), or list what to change. Until then nothing is built. | Approve after reading 05 (master plan) and skimming the rest; raise changes as comments or edits | Whenever you are ready; no default |
+| Q-012 | ~~Gate G0.~~ Approved (D-015). | | |
 | Q-008 | Accounts: two GitHub repos with access for this environment, Stripe, Cloudflare, Fly or Render, Neon or Supabase, Apify, Sentry, itch.io, Discord; Steamworks by M3. | Open in the order the milestones need them | Rolling |
