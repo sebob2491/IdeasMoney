@@ -12,6 +12,9 @@ One line per decision. Open questions at the bottom are what you answer each wee
 | D-004 | 2026-11-01 | Separate repos. Three in total: `IdeasMoney` (control plane), a new repo for Track A (to be created by you), and the existing `sebob2491/azeroth-idle` repo for Track B. The current `index.html` stays as the design reference in `legacy/` while the new game is built alongside it. | You |
 | D-005 | 2026-11-01 | Track B setting defaults to Option 1, Sonoran myth, working title "Dry River" (see `design/03-track-b-setting-options.md`). You may veto or switch any time before the public web alpha. | Claude, on your request to decide |
 | D-006 | 2026-11-01 | The `azeroth-idle` repo is attached to this environment with push access. The companion `azeroth-idle-github-pages` repo was not attached (permission denied by the session's classifier); its deployment is unaffected until you say otherwise. | Claude |
+| D-007 | 2026-11-01 | Track A repo `sebob2491/records-platform` created (empty, private) and attached to this environment with push access. | You and Claude |
+| D-008 | 2026-11-01 | The legacy `index.html` in `azeroth-idle` stays exactly where it is. The new game is built in subfolders beside it, so no deployment can break and nothing needs confirming. | Claude |
+| D-009 | 2026-11-01 | Budget is governed by plan usage, not dollars. Default throttle: one builder session per track per night, five nights a week; planner once a week; maintenance twice a week; watchdogs daily. Measured against the plan's usage window after week one and adjusted. Real-dollar costs are only infrastructure: Track A roughly $50 to $150 per month once live, Track B near zero before Steam. | Claude, on your note that you go by usage |
 
 ## Open questions
 
@@ -23,7 +26,8 @@ One line per decision. Open questions at the bottom are what you answer each wee
 | Q-004 | ~~Track B setting.~~ Defaulted by D-005 to Sonoran myth, "Dry River." Veto window open until the public web alpha. | | |
 | Q-005 | ~~Where does the existing game go?~~ Closed by D-004: Track B is built inside the `azeroth-idle` repo. | | |
 | Q-006 | Track B art approach and budget: CC BY icon set now, commissioned set before the Steam page, roughly $2K to $5K. | Yes | Before M3 |
-| Q-007 | Monthly cap on agent compute and infrastructure, and the horizon (six or twelve months). | Measure week one, then cap | Setup week |
-| Q-009 | Create the Track A repo and grant this environment access. Suggested name `records-platform` (a codename; GitHub redirects on rename once the product is named). Private. | Create it empty, no README | Before Track A setup |
+| Q-007 | ~~Monthly cap.~~ Reframed and defaulted by D-009. Only open point: tell me if the nightly routines ever block your own interactive use, and I will thin the schedule. | | |
+| Q-009 | ~~Create the Track A repo.~~ Closed by D-007. | | |
 | Q-010 | Rename the `azeroth-idle` repo once the game has a final name, so the Blizzard mark leaves the project URL. Keep it private until then. | Rename at M3 | Before the Steam page |
+| Q-011 | Where is the readable source of the game? The repo holds only the compiled bundle. Look in the "Claude Work" folder on your DESKTOP-GUGKJK5 computer for a project folder containing `src/` and `package.json` (or the readable `azeroth-idle.html`). Zip that folder without `node_modules` and upload the zip to the `azeroth-idle` repo with GitHub's "Add file, Upload files" button, the same way the early commits were made. | Find and upload; if it is gone, say so and the extraction path starts | Before Track B M0 port work |
 | Q-008 | Accounts: two GitHub repos with access for this environment, Stripe, Cloudflare, Fly or Render, Neon or Supabase, Apify, Sentry, itch.io, Discord; Steamworks by M3. | Open in the order the milestones need them | Rolling |
