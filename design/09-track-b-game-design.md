@@ -613,3 +613,100 @@ Screens: Camp (buildings, campfire, hired hand), one Skill screen per skill (act
 **Accessibility.** Full keyboard operation; every icon has a text label and an `aria-label`; live regions announce level-ups at a chosen rate; reduced motion stops the progress rings and replaces them with a percentage; focus rings are always visible; colors never carry meaning alone (rarity uses an icon frame shape as well); minimum text 14 px at 100%; axe checks in CI.
 
 **Narrow window and Steam Deck.** Below 900 px the rail collapses to icons and the drawer becomes a tab; below 600 px screens stack vertically and the bottom bar becomes a five-tab nav. Steam Deck (1280 by 800) uses the collapsed rail, 125% text, gamepad mapping (bumpers switch skills, triggers switch screens, face buttons act on the focused card), and a 32 px minimum hit target. The legacy single-column design informs the stacked layout.
+
+## 11. Art direction
+
+**Palette.**
+
+| Role | Name | Hex |
+|---|---|---|
+| Primary | Ochre | #C8793A |
+| Secondary | Dusk Violet | #4B3A6B |
+| Background (day) | Sand | #E8D5B0 |
+| Surface (day) | Caliche White | #F4EFE6 |
+| Background (dusk) | Night | #1E1A2B |
+| Surface (dusk) | Storm | #2F4858 |
+| Text (day) | Mesquite | #5B3A21 |
+| Accent: metals | Copper | #B87333 |
+| Accent: gems and water | Turquoise | #3FA7A0 |
+| Accent: plants | Agave Green | #7E9B6B |
+| Accent: monsoon and progress | Monsoon Blue | #3B6FB6 |
+| Accent: danger and fire | Fire Agate | #D9512C |
+
+Material families each own one accent; rarity uses frame shape plus a neutral gray-to-gold ramp (#9A9A9A, #3FA7A0, #4B3A6B, #C8793A, #E0B400) that passes the colorblind modes because shape carries the meaning.
+
+**Icon style.** Filled monochrome silhouettes on a 48 px grid, recolored per family, 2 px rounded frame. game-icons.net (CC BY 3.0, attribution page in Settings and on the store page) for the alpha; the commissioned set at M3 keeps the silhouette language so the swap is a file replacement. Monsters get a two-tone treatment (family accent plus Night) so they read as "alive" against item icons.
+
+**Typography.** Fraunces (titles, OFL), Inter (body, OFL), IBM Plex Mono with tabular figures (numbers, timers, OFL). Three sizes for body, two for headings, one for numbers; no italics in UI.
+
+**Motion.** Progress rings fill linearly; number changes tick for at most 300 ms; toasts slide 120 ms; nothing loops except the Monsoon bar's slow shimmer and the campfire; reduced motion removes all three. No screen shake, ever.
+
+**Asset counts.**
+
+| Milestone | Item icons | Monster icons | Area art | UI glyphs | Key art |
+|---|---|---|---|---|---|
+| M1 slice | 90 | 15 | 1 map tile | 40 | 0 |
+| M2 alpha | 420 | 80 | 8 tiles plus 4 flooded | 60 | 1 (devlog header) |
+| M3 Steam page | 600 commissioned | 120 commissioned | 12 painted | 60 | 1 capsule set, 6 screenshots, 1 trailer |
+| 1.0 | 620 | 130 | 14 | 64 | plus 2 for DLC teasers |
+
+**AI disclosure policy.** Art: no generated art ships; if any is ever used for a placeholder it never reaches a public build. Text: ledger lines, flavor text, and names may be drafted by the agent to a brief; every line is human-read and edited before it ships; the content pipeline logs the origin of every string; the Steam disclosure and the in-game credits say so in one plain paragraph; the wiki marks data-generated pages. Balance simulation and code are not player-facing content and are not disclosed as such, following Steam's January 2026 rule.
+
+## 12. Audio
+
+Minimal and off by default on the web, on at 40% on Steam. One ambient loop per time of day (wind, crickets, distant thunder as the bar passes 80%), 24 short effects (action complete per skill group, level up, rare drop, dungeon clear, monsoon call, caravan bell), no music until M3, when one five-minute title theme and one monsoon cue are commissioned or licensed. Separate sliders for ambient and effects; a "quiet mode" that keeps only the rare-drop sound.
+
+## 13. Modding
+
+**Day one: data packs.** A pack is a folder or zip with `manifest.json` (id, name, version, game version range, author, license, a required `generated_content` field for the disclosure log), `content/*.json` (items, recipes, actions, monsters, areas, dungeons, shop, achievements, watermarks, ledger, weather), `strings/<lang>.json`, and `icons/`. Files use the same Zod schemas as the game; the linter runs on load and refuses a pack that dangles a reference. Merge by id; `"$remove": true` deletes; load order by the player's list; conflicts are reported, not silently resolved. Packs load from a local folder or a URL with a permission prompt that lists what the pack changes. Saves record the pack list; a save loaded without its packs quarantines the orphaned items rather than deleting them.
+
+**Three mods to expect.** "Longer Caravan" (quality of life: caravan every 12 hours, wanted list of four), "Sky Islands" (a content pack: a ninth area with two creature families and a dungeon, which is exactly what the pack format is for), and "Hard Water" (a difficulty pack: timers plus 30%, death loses 25% coin, Silt plus 40%).
+
+**Reserved for the script API (post 1.0).** New formulas, new UI panels, automation of player decisions, save editing, networked features, and anything that runs code. Those arrive with a sandbox and mod.io on Steam.
+
+## 14. Live operations and community
+
+Content cadence: weekly drops during the M2 alpha (one of: a monster family tier, a ledger chain, a building, a flooded variant), biweekly after the Steam page, monthly after 1.0 with a quarterly larger drop. Feedback loops: in-game "send a note" that attaches the save summary (opt-in), a Discord feedback channel triaged nightly into issues, a pinned r/incremental_games thread per public build, opt-in telemetry compared against the simulator each week. Wiki: generated from content JSON with a disclosure banner, hosted on the game domain, editable in the parts that are not data. Discord roles: Drifter (everyone), Surveyor (bug reports verified), Caravan (modders), Padre (moderators), Owner. Devlog cadence: biweekly during alpha, monthly after, each with one image and one number. The agent drafts devlogs, patch notes, wiki pages, triage summaries, and reply suggestions; the human posts everything under their own name, plays every build before it ships, and approves every name.
+
+## 15. Monetization and platforms
+
+Web: free, itch.io and the game domain, PWA, cloud save by export file and optional account later. Steam: $8.99 base, 15% launch discount for two weeks, Next Fest demo of the first 10 hours with saves that carry over, achievements, cloud saves, Steam Deck verified. DLC: two paid expansions after 1.0 at $3.99 to $4.99 each (a new area pair with a family, a dungeon, a raid tier, two watermark families, and a flooded variant), never gating anything the base game promises. Never monetized: time, Silt, scrip, bank space, offline hours, cosmetics, ads of any kind, or any mod.
+
+## 16. Content volume targets
+
+| Milestone | Skills | Actions | Items | Recipes | Monsters | Areas | Dungeons | Achievements | Watermarks | Ledger |
+|---|---|---|---|---|---|---|---|---|---|---|
+| M0 | 2 | 26 | 40 | 10 | 0 | 1 | 0 | 0 | 0 | 0 |
+| M1 slice | 5 | 60 | 120 | 45 | 15 | 2 | 1 | 20 | 0 | 6 |
+| M2 alpha | 15 | 200 | 420 | 180 | 80 | 16 | 6 | 90 | 24 | 30 |
+| M3 Steam page | 15 | 220 | 540 | 230 | 110 | 22 | 9 | 130 | 34 | 50 |
+| 1.0 | 15 | 230 | 600 | 250 | 120 | 25 | 10 | 150 | 40 | 60 |
+
+## 17. Risks, design debt, open questions
+
+**Risks.**
+
+| Risk | Mitigation |
+|---|---|
+| Three concurrent slots trivialize the economy | The simulator runs the three-slot policy against the sinks; the third slot is a late watermark |
+| Flooded areas feel like a timer that punishes idle players | Flood duration counts active hours (time the game is running), never calendar time |
+| Fifteen skills spread content thin at M2 | M2 ships every skill to level 50 content; 50 to 99 fills in M3 |
+| Regional flavor reads niche | The store capsule leads with the two moons and the Thunderbird, not a cactus |
+| Mythic tone drifts toward cowboy during content generation | The brief forbids firearms, hats as icons, and outlaw human enemies; the linter flags "gun," "sheriff," "saloon" |
+
+**Design debt accepted now.** Combat has two styles, not three, until a third (a Distilling-based "thrown tonics" style) proves wanted. Mastery pool rules copy the legacy game until the simulator shows a reason to change them. Masonry buildings have no upkeep, which is simple but removes a sink; revisit after the alpha. The Deep Mine's procedural floors are the only non-authored content and could feel samey.
+
+**Open questions for the owner, each with a default.**
+
+| ID | Question | Recommended default |
+|---|---|---|
+| GD-01 | Fifteen skills (Cartography leveled) or fourteen (Cartography as unlocks)? | Fifteen |
+| GD-02 | Should a monsoon be forced at any point, or always optional? | Always optional; overfill caps at 300% |
+| GD-03 | Steam price: $7.99, $8.99, or $9.99? | $8.99 |
+| GD-04 | Do tool tiers persist through the first monsoon for free, or as the first watermark purchase? | First purchase, cheap, taught in the confirmation screen |
+| GD-05 | Flooded areas: 20 active hours, or until the next monsoon? | 20 active hours, with Silt Flats after |
+| GD-06 | Weapon fantasy: bows, slings, and knives only, or admit a late "lightning rod" ranged weapon? | Admit one, from the Rookery, as the raid-tier reward |
+| GD-07 | Keep "Dry River" as the final title if the trademark search is clean? | Yes, with a subtitle decided at M3 |
+| GD-08 | Ledger text: agent-drafted and human-edited, or human-written only? | Agent-drafted to a brief, every line edited and logged |
+| GD-09 | Web cloud saves with accounts before Steam? | No; file export until Steam cloud |
+| GD-10 | Second combat style name: Marksmanship or Hunting? | Marksmanship |

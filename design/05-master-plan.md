@@ -19,6 +19,7 @@ Status: design, 2026-11-01. This is the document that ties the package together.
 | 10 | Track B technical design | Done |
 | 11 | Legal and compliance | Done |
 | 12 | Naming shortlists and process | Done |
+| 13 | All open questions in one place | Done; the page you answer |
 | research/phase0-scorecard.md | Phase 0 vertical scorecard | Done |
 
 ## 2. Operating model
