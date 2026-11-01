@@ -7,4 +7,4 @@ Research and recommendations for what one person can build with an AI coding age
 - **Decisions:** [`DECISIONS.md`](DECISIONS.md) is the running decision log and the open questions to answer each week.
 - **Evidence:** [`research/`](research/) holds the seven underlying research reports with roughly 700 cited URLs. Figures are tagged verified, self-reported, estimate or unverified.
 
-Status: research and designs complete as of 2026-11-01; Tracks A and B approved to proceed in parallel; nothing has been built yet. Next step is answering the open questions in `DECISIONS.md`, then the setup week in `design/00-studio-pipeline.md` Section 12.
+Status: research complete and the design package in progress as of 2026-11-01; Tracks A and B approved in principle; nothing is built until Gate G0 in `design/05-master-plan.md` (your approval of the package). Start with `design/05-master-plan.md`.
