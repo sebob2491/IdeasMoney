@@ -47,6 +47,6 @@ Moving `index.html` to `legacy/` only matters if GitHub Pages serves this repo's
 - Stack decision for the UI is contingent on source availability: Solid if the source arrives, React otherwise.
 - Keep the repo private and rename it once the game has a final name (Q-010).
 
-## Open item for you
+## Resolution (2026-11-01, later the same day)
 
-Where is the readable source or the `azeroth-idle.html` your skills refer to? If it is on your computer, adding it to the repo (or sharing the folder through Remote Control) saves weeks of reconstruction. If it does not exist anymore, say so and the extraction-plus-parity path starts in M0.
+You confirmed the game only ever existed as the one file, and every one of the 14 versions in the repo's history is a compiled bundle (first upload 1.40 MB with a 385K-character line; latest 1.85 MB with a 443K-character line; zero readable function names in any version). The source was never committed and probably never existed as a separate project on your side. Track B proceeds on the extraction-plus-parity path described above, with React for the UI since there is no Solid source to carry over. If you ever find a folder with `src/` and `package.json` in your "Claude Work" directory, upload it and the port gets faster, but nothing waits on it.
