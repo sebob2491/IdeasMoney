@@ -135,6 +135,8 @@ Runs gate-fast, then the full unit and property suite, then the content linter a
 
 Revised 2026-11-08 for Actions cost (D-020): GitHub bills every job a full minute minimum, so the sub-minute stages below share one runner. Each repo runs three PR jobs: `checks` (the lint-type, unit-property, content-rules, budgets and gate stages, plus changed-file mutants on Track A), `e2e`, and `security`. Mutation on the day's changes runs nightly on Track B; full mutation runs weekly on both; Track B's stochastic parity chain runs weekly. The table keeps the stage breakdown for reference.
 
+While GitHub Actions is off (D-023), `scripts/review-gate.sh` runs the same checks locally on a clean checkout of the PR branch; the Reviewer posts its summary as the PR comment that stands in for CI, and merges are gated on that comment instead of status checks.
+
 | Job | A | B | Budget |
 |---|---|---|---|
 | lint-type | ruff, pyright strict | eslint, prettier check, tsc | 5 min |
