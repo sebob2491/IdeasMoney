@@ -133,6 +133,8 @@ Runs gate-fast, then the full unit and property suite, then the content linter a
 
 ### 3.1 `ci.yml` jobs (both tracks, ordered, with time budgets)
 
+Revised 2026-11-08 for Actions cost (D-020): GitHub bills every job a full minute minimum, so the sub-minute stages below share one runner. Each repo runs three PR jobs: `checks` (the lint-type, unit-property, content-rules, budgets and gate stages, plus changed-file mutants on Track A), `e2e`, and `security`. Mutation on the day's changes runs nightly on Track B; full mutation runs weekly on both; Track B's stochastic parity chain runs weekly. The table keeps the stage breakdown for reference.
+
 | Job | A | B | Budget |
 |---|---|---|---|
 | lint-type | ruff, pyright strict | eslint, prettier check, tsc | 5 min |
@@ -148,11 +150,11 @@ Runs gate-fast, then the full unit and property suite, then the content linter a
 
 ### 3.2 Branch protection on `main`
 
-Require a pull request; require status checks lint-type, unit-property, content-rules, e2e, security, diff-size; require one approval from CODEOWNERS; dismiss stale approvals on new commits; no force pushes; no deletions; squash merge only; linear history.
+Require a pull request; require status checks `checks`, `e2e`, `security` (and `diff-size` on `azeroth-idle`, which keeps its own workflow); require one approval from CODEOWNERS; dismiss stale approvals on new commits; no force pushes; no deletions; squash merge only; linear history.
 
 ## 4. Routines
 
-All run in `auto` permission mode as fresh cloud sessions on a fresh clone of the repo, with a turn cap. Times are America/Phoenix.
+Revised 2026-11-08 (D-022). A fresh cloud session started by a routine receives no private repository, so each track has one long-lived worker session created with its repository as source, on Claude Sonnet 5.5, in the "IdeasMoney studio" environment. The Builder, Reviewer, Watchdog and Maintenance routines fire into that session with short wake prompts that rely on a standing brief; the Reviewer delegates to a fresh-context subagent so the review never sees the implementation conversation. The weekly planner fires into the control-plane session and posts its "Needs you" list there. All run in `auto` permission mode with a turn cap. Times are America/Phoenix. The prompts below are the standing briefs.
 
 ### 4.1 Builder (A at 01:00, B at 02:30, Monday to Friday nights; cap 40 turns)
 
@@ -222,9 +224,8 @@ Generate changelog from merged PRs since the last tag; build; deploy to the targ
 | Work | Model tier | Cap |
 |---|---|---|
 | Planner, digests | Mid | 30 turns |
-| Builder, S chores | Mid | 40 turns |
-| Builder, M features and anything in core or normalize or billing | Top | 40 turns |
-| Reviewer | Top | 15 turns |
+| Builder (worker session) | Mid, Sonnet 5.5 | 40 turns |
+| Reviewer (fresh subagent inside the worker session) | Mid; the planner may escalate core, normalize or billing reviews to Top when a digest shows reverts | 15 turns |
 | Maintenance, watchdogs | Small or mid | 10 to 25 turns |
 | Design and incident sessions | Top, interactive | None |
 

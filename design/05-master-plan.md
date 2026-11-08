@@ -83,6 +83,8 @@ Week 0 is the setup week after G0. Dates are relative because G0 depends on you.
 
 ## 7. Usage and cost plan
 
+Revised 2026-11-08 (D-019 to D-022): the Actions allowance ran out in week one after about 160 CI runs per repo. CI now runs three jobs per PR, heavy suites run nightly or weekly, a $15 monthly Actions spending limit is requested (Q-014), and routine work runs on Sonnet 5.5 in two long-lived worker sessions with the reviewer in a fresh subagent. The top model is reserved for design and incident sessions in this conversation.
+
 Agent work draws on your plan's usage, not dollars. Default throttle (D-009): one builder session per track per night, five nights a week; one planner per week; maintenance twice a week; watchdogs daily. Week 1 measures the share of your allowance this consumes; the digest reports it; the schedule thins if it crowds out your own use. Real-dollar costs: Track A infrastructure $50 to $150 per month from M1 onward, rising with traffic; domains about $15 per year each; Track B near zero until the artist commission ($2K to $5K) and the Steam fee ($100 per app).
 
 ## 8. Risk register
