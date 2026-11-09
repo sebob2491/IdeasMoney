@@ -1,0 +1,2 @@
+week,prs_merged_a,prs_merged_b,open_prs_a,open_prs_b,needs_human,blocked,ready_a,ready_b,nightly_green,actions_minutes_est,reverts
+2026-45,44,36,4,5,8,4,27,16,0/12,4500,0
