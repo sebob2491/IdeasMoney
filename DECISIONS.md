@@ -79,6 +79,7 @@ One line per decision. Open questions at the bottom are what you answer each wee
 | D-071 | 2026-11-22 | Morning check-in. Merged under the reviewer rule: game #282 (prestige watermarks, worker verdict approve) and #284 (legacy dungeon driver, read by the control plane). Records #157 item 4b answered: carry the config path as a non-serialized private attribute, error text `<slug> (<path>)`. For the owner: records #230, whether PARK, PRK and PARKS as the street suffix join CENTER, CENTRE and PLAZA under D-029 (recommended yes). | control plane |
 | D-072 | 2026-11-22 | Weekly planner, kept light. Filed registry reconcile issues (records #270, game #289, both `priority`) because both `features.json` files are a week stale; records #271 restore drill, #272 Florida and #273 Oregon sources, built disabled against sample fixtures like Washington. Design mirrors not refreshed (no design change). Digest 2026-47 written onto the open digest PR. | control plane |
 | D-073 | 2026-11-22 | Evening check-in. Records #268 merged (worker verdict approve). Game #286 (dungeon clear-time parity): the `test.fail` approach is accepted, each test with its own stated reason, #251 open until both are gone; the cause (#285, swing interval from the weapon) is blocked behind the owner's merge of #272. | control plane |
+| D-074 | 2026-11-23 | Owner: merge those. Game #272 (combat sheet part 2) and #271 (Cooking names, accepted) merged; Q-049 and Q-050 closed. Unblocked: #285 swing interval (`priority`), #102 Cooking port (`priority`), #112 combat panel, #219 500-fight suite. Also merged with approving reviews: records #269, game #286 and #288. | owner |
 
 ## Open questions
 
@@ -127,7 +128,5 @@ One line per decision. Open questions at the bottom are what you answer each wee
 | Q-041 | Send the first Track B worker one line so its reviewer merges migration PRs: "Apply the reviewer-routine edit for D-049: in step 4, remove `migration` from the labels that block a merge and add '(a migration PR qualifies until the first public build)'. You are allowed to use update_trigger for that." | ~~Send it~~ Sent (Nov 11) | |
 | Q-042 | Send each of the four worker sessions the one-line switch to file-based routines (text in the control-plane chat of Nov 11). | ~~Send them~~ Done (Nov 12) | |
 | Q-048 | Delegate the state golden for skill ports? Each new skill moves both scenario hashes, so every port stops for the owner's yes. (a) the control plane regenerates it when a PR only adds a skill's content; (b) keep asking. | (a) | Before the Cooking PR |
-| Q-049 | Game PR #272 (combat sheet part 2, balance change, reviewed and green): merge? | Yes | Now |
-| Q-050 | Game PR #271 (Cooking names): accept by merging? | Yes | Now |
 | Q-051 | Let workers merge small green PRs again through a permission rule in each repo's settings? Otherwise the control plane merges at check-ins (D-070). | Owner's call | When convenient |
 | Q-052 | Records #230: PARK, PRK and PARKS as the street suffix join CENTER, CENTRE and PLAZA (D-029)? | Yes | When convenient |
